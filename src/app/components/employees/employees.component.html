@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+    <button class="btn btn-raised btn-warning addButton" routerLink="/add-employee">Add Employee</button>
+    <mat-card class="employees">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngFor="let column of displayedColumns">{{ column }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{ employee.firstname }}</td>
+                    <td>{{ employee.lastname }}</td>
+                    <td>{{ employee.address }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.dailyAvailability }}</td>
+                    <td>{{ employee.startHour }}</td>
+                    <td>{{ employee.endHour }}</td>
+                    <td>{{ employee.payment }}</td>
+                    <td>
+                        <i class="pi pi-cog edit" [routerLink]="['/edit-employee', employee.id]"></i>
+                        <i class="pi pi-trash delete" (click)="deleteEmployee(employee)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+</div>

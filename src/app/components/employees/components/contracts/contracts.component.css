@@ -1,0 +1,29 @@
+table{
+    width: 100%;
+    text-align: center;
+}
+
+th{
+    text-align: center !important;
+    border: 0px !important;
+}
+
+.contracts{
+    clear: both;
+    height: 70vh !important;
+    overflow-y: scroll !important;
+    margin-top: 4%;
+}
+
+.saveContract{
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 1.3em;
+    background-color: #ffc107;
+    color: white;
+}
+
+.saveContract:hover{
+    cursor: pointer;
+    background-color: #e0aa08;
+}

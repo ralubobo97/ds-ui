@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div class="container">
+    <mat-card class="employeeCard">
+        <mat-card-title>Edit Employee</mat-card-title>
+        <hr>
+        <mat-card-content>
+            <form #employeeForm="ngForm">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput [(ngModel)]="firstname" name="firstname" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [(ngModel)]="lastname" name="lastname" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput [(ngModel)]="address" name="address" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" [(ngModel)]="email" name="email" email required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Daily Availability</mat-label>
+                    <input matInput type="number" [(ngModel)]="dailyAvailability" name="dailyAvailability" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Start Hour</mat-label>
+                    <input matInput type="number" [(ngModel)]="startHour" name="startHour" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>End Hour</mat-label>
+                    <input matInput type="number" [(ngModel)]="endHour" name="endHour" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Hourly Payment</mat-label>
+                    <input matInput type="text" [(ngModel)]="payment" name="payment" required>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <hr>
+        <button mat-raised-button color="primary" (click)="editEmployee(employeeForm.value)">Edit</button>
+    </mat-card>
+</div>

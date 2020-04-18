@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+    <mat-card class="contracts">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Extra Months</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contract of contracts">
+                    <td>{{ contract.employeeName }}</td>
+                    <td>{{ contract.startDate }}</td>
+                    <td>{{ contract.endDate }}</td>
+                    <td>
+                        <input name="newEndDate" [(ngModel)]="endDates[contract.id]" type="number" size="2" pInputText style="width: 60px; height: 30px;"> 
+                    </td>
+                    <td>
+                        <i class="pi pi-save saveContract" (click)="modifyContract(contract)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+</div>

@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container">
+    <mat-card class="employeeCard">
+        <mat-card-title>Add Employee</mat-card-title>
+        <hr>
+        <mat-card-content>
+            <form #employeeForm="ngForm">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput ngModel #firstname="ngModel" name="firstname" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput ngModel #lastname="ngModel" name="lastname" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput ngModel #address="ngModel" name="address" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" ngModel #email="ngModel" #mail="ngModel" name="email" email required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Daily Availability</mat-label>
+                    <input matInput type="number" ngModel #dailyAvailability="ngModel" name="dailyAvailability" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Start Hour</mat-label>
+                    <input matInput type="number" ngModel #startHour="ngModel" name="startHour" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>End Hour</mat-label>
+                    <input matInput type="number" ngModel #endHour="ngModel" name="endHour" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Hourly Payment</mat-label>
+                    <input matInput type="text" ngModel #payment="ngModel" name="payment" required>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Contract Validity</mat-label>
+                    <input matInput type="number" ngModel #contractValidity="ngModel" name="contractValidity" required>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <hr>
+        <button mat-raised-button color="primary" (click)="addEmployee(employeeForm.value)">Add</button>
+    </mat-card>
+</div>

@@ -1,0 +1,26 @@
+<div style="width: 100% !important;">
+    <nav class="navbar navbar-light bg-light">
+        <button class="menuButton" (click)="display = true" pButton><i class="pi pi-bars"></i></button>
+        <a class="navbar-brand" routerLink="/">DS Project</a>
+        <button type="button" class="btn btn-raised btn-primary" routerLink="/login" (click)="logout()">Logout</button>
+    </nav>
+    <p-sidebar 
+        [(visible)]="display" 
+        position="left" 
+        [style]="{width:'25em'}"
+        [showCloseIcon]="false">
+    
+        <div class="menu">
+            <h3 class="text-center">DS Project</h3>
+            <div class="navigation">
+                <div class="row"><a (click)="display = false" routerLink="/">Home</a></div>
+                <hr>
+                <div class="row"><a (click)="display = false" routerLink="/employees">Employees</a></div>
+                <hr>
+                <div class="row"><a (click)="display = false" routerLink="/">Link</a></div>
+                <hr>
+            </div>
+        </div>
+    </p-sidebar>
+</div>
+ 
