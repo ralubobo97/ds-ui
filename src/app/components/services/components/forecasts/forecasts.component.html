@@ -1,0 +1,30 @@
+<h4>Top three services that need to be advertised more</h4>
+<hr>
+<ng-container *ngFor="let forecast of forecasts; let i = index">
+    <div class="row" *ngIf="i%3 == 0">
+        <div class="col-4" *ngIf="i < forecasts.length">
+            <mat-card class="forecast">
+                <h5 >{{ forecasts[i].name }} - {{ forecasts[i].type }}</h5>
+                <hr>
+                <p><b>Period: </b>{{ forecasts[i].startDate }} - {{ forecasts[i].endDate }}</p>
+                <p><b>Popularity: </b>{{ forecasts[i].popularity }}</p>
+            </mat-card>
+        </div>
+        <div class="col-4" *ngIf="(i+1) < forecasts.length">
+            <mat-card class="forecast">
+                <h5 >{{ forecasts[i+1].name }} - {{ forecasts[i+1].type }}</h5>
+                <hr>
+                <p><b>Period: </b>{{ forecasts[i+1].startDate }} - {{ forecasts[i+1].endDate }}</p>
+                <p><b>Popularity: </b>{{ forecasts[i+1].popularity }}</p>
+            </mat-card>
+        </div>
+        <div class="col-4" *ngIf="(i+2) < forecasts.length">
+            <mat-card class="forecast">
+                <h5 >{{ forecasts[i+2].name }} - {{ forecasts[i+2].type }}</h5>
+                <hr>
+                <p><b>Period: </b>{{ forecasts[i+2].startDate }} - {{ forecasts[i+2].endDate }}</p>
+                <p style="display: inline;"><b>Popularity: </b>{{ forecasts[i+2].popularity }}</p>
+            </mat-card>
+        </div>
+    </div>
+</ng-container>

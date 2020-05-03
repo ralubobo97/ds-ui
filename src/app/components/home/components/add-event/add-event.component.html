@@ -1,0 +1,44 @@
+<h4 class="text-center">Add Event</h4>
+<hr>
+<div class="text-center">
+    <form #eventForm="ngForm">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name" name="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput [(ngModel)]="location" name="location">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Hall</mat-label>
+            <input matInput [(ngModel)]="hall" name="hall">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Equipment</mat-label>
+            <input matInput [(ngModel)]="equipment" name="equipment">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="dateInput">
+            <mat-label>Date</mat-label>
+            <input matInput [(ngModel)]="date" name="date" [matDatepicker]="startPicker" required>
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="period">
+            <mat-label>Start Hour</mat-label>
+            <input matInput [(ngModel)]="startHour" name="startHour">
+        </mat-form-field>
+         - 
+        <mat-form-field class="period">
+            <mat-label>End Hour</mat-label>
+            <input matInput [(ngModel)]="endHour" name="endHour">
+        </mat-form-field>
+    </form>
+    <hr>
+    <button mat-raised-button color="primary" (click)="addEvent(eventForm.value)">Add</button>
+</div>

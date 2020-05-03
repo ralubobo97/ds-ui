@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container">
+    <div id="pdfTable" #pdfTable>
+        <h3 class="mt-4 mb-4">Monthly Report</h3>
+        <table class="table table-striped text-center" style="width: 70%;">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Bill Gain</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bill of bills">
+                    <td>{{ bill.customerName ? bill.customerName : bill.companyName }}</td>
+                    <td>{{ bill.price | currency: 'EUR'}}</td>
+                </tr>
+                <tr>
+                    <td><b>Total Gain: </b>{{ totalGain | currency: 'EUR'}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-raised btn-info" (click)="downloadAsPDF()">Export to PDF</button>
+</div>

@@ -20,6 +20,30 @@ import { AddEmployeeComponent } from './components/employees/components/add-empl
 import { EditEmployeeComponent } from './components/employees/components/edit-employee/edit-employee.component';
 import { ContractsComponent } from './components/employees/components/contracts/contracts.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { CompetitorsComponent } from './components/competitors/competitors.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { CompetitorFormComponent } from './components/competitors/components/competitor-form/competitor-form.component';
+import { ServicesComponent } from './components/services/services.component';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { AddServiceComponent } from './components/services/components/add-service/add-service.component';
+import { MatSelectModule } from '@angular/material/select';
+import { EditServiceComponent } from './components/services/components/edit-service/edit-service.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { AddCustomerComponent } from './components/customers/components/add-customer/add-customer.component';
+import { CompanyComponent } from './components/customers/components/company/company.component'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { BillsComponent } from './components/bills/bills.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ToastModule } from 'primeng/toast';
+import { ForecastsComponent } from './components/services/components/forecasts/forecasts.component';
+import { CarouselModule } from 'primeng/carousel';
+import { AddParticipantsComponent } from './components/home/components/add-participants/add-participants.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { AddEventComponent } from './components/home/components/add-event/add-event.component';
+import { DeliveriesComponent } from './components/deliveries/deliveries.component';
+import { ReportsComponent } from './components/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +54,21 @@ import { InputTextModule } from 'primeng/inputtext';
     EmployeesComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
-    ContractsComponent
+    ContractsComponent,
+    CompetitorsComponent,
+    CompetitorFormComponent,
+    ServicesComponent,
+    AddServiceComponent,
+    EditServiceComponent,
+    CustomersComponent,
+    AddCustomerComponent,
+    CompanyComponent,
+    BillsComponent,
+    ForecastsComponent,
+    AddParticipantsComponent,
+    AddEventComponent,
+    DeliveriesComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +81,23 @@ import { InputTextModule } from 'primeng/inputtext';
     MatButtonModule,
     SidebarModule,
     MatTableModule,
-    InputTextModule
+    InputTextModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    TableModule,
+    DropdownModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatExpansionModule,
+    ToastModule,
+    CarouselModule,
+    CheckboxModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {provide: MAT_DATE_LOCALE, useValue: 'ro-RO'} 
+  ],
+  entryComponents: [CompanyComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

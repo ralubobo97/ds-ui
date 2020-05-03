@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="container">
+    <mat-card class="customerCard">
+        <mat-card-title>Add Customer</mat-card-title>
+        <hr>
+        <mat-card-content>
+            <form #customerForm="ngForm">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput [(ngModel)]="firstname" name="firstname" [disabled]="companySelected">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [(ngModel)]="lastname" name="lastname" [disabled]="companySelected">
+                </mat-form-field>
+                <br>
+                <mat-form-field style="margin-left: 35px; margin-right: 10px;">
+                    <mat-label>Company</mat-label>
+                    <mat-select [(ngModel)]="company" name="company" (selectionChange)="disable($event)" (click)="getCompanies()">
+                        <mat-option *ngFor="let company of companies | async" [value]="company.value">
+                          {{ company.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <i class="pi pi-plus plusButton" (click)="addCompany()"></i>
+                <br>
+                <mat-form-field>
+                    <mat-label>CNP</mat-label>
+                    <input matInput [(ngModel)]="cnp" name="cnp" [disabled]="companySelected">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" ngModel #email="ngModel" #mail="ngModel" name="email" email>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Phone</mat-label>
+                    <input matInput type="text" ngModel #phone="ngModel" name="phone">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Location</mat-label>
+                    <input matInput type="text" ngModel #location="ngModel" name="location">
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                    <mat-label>Feedback</mat-label>
+                    <input matInput type="text" ngModel #feedback="ngModel" name="feedback">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <hr>
+        <button mat-raised-button color="primary" (click)="addCustomer(customerForm.value)">Add</button>
+    </mat-card>
+</div>

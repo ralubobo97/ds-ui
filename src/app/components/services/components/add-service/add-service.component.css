@@ -1,0 +1,10 @@
+.serviceCard{
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 8%;
+    text-align: center;
+}
+
+.serviceInputs{
+    width: 180px;
+}

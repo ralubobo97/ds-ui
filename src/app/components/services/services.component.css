@@ -1,0 +1,39 @@
+.addButton, .forecastButton{
+    float: right;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: white;
+}
+
+.services{
+    clear: both;
+    height: 67vh !important;
+    overflow-y: scroll !important;
+}
+
+.delete{
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 1.3em;
+    background-color: #b53e3e;
+    color: white;
+}
+
+.delete:hover{
+    cursor: pointer;
+    background-color: #973434;
+}
+
+.edit{
+    border-radius: 50%;
+    padding: 7px;
+    font-size: 1.3em;
+    background-color: #7c97ad;
+    color: white;
+    margin-right: 20px;
+}
+
+.edit:hover{
+    cursor: pointer;
+    background-color: #608bad;
+}

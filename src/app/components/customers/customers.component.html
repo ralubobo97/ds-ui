@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container">
+    <button class="btn btn-raised btn-warning addButton" routerLink="/add-customer">Add Customer</button>
+    <mat-card class="customers">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngFor="let column of displayedColumns">{{ column }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let customer of customers">
+                    <td>{{ customer.firstname }}</td>
+                    <td>{{ customer.lastname }}</td>
+                    <td *ngIf="customer.company" class="editCompany" (click)="editCompany(customer.companyID)">{{ customer.company }}</td>
+                    <td *ngIf="customer.cnp">{{ customer.cnp }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.location }}</td>
+                    <td>{{ customer.feedback ? customer.feedback : '-' }}</td>
+                    <td>
+                        <i class="pi pi-trash delete" (click)="deleteCustomer(customer)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+</div>

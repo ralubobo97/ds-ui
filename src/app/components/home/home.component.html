@@ -1,4 +1,43 @@
 <app-header></app-header>
 <div class="container">
-    
+    <div class="eventsAccordion">
+        <div class="mt-4">
+            <h4 style="display: inline;" class="mt-4 mb-4">Events</h4>
+            <button style="float: right; color: white;" class="btn btn-raised btn-warning" (click)="addEvent()">Add Event</button>
+        </div>
+        <br>
+        <mat-accordion>
+            <ng-container *ngFor="let event of events">
+                <mat-expansion-panel (opened)="openAccordion(event)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Event: {{ event.name }}</mat-panel-title>
+                        <mat-panel-description>
+                            Date: {{ event.date }} 
+                            <span class="ml-5">Interval: {{ event.startHour }}:00 - {{ event.endHour }}:00</span>
+                            <span class="ml-5">Location: {{ event.location }}</span>
+                            <span class="ml-5">Hall: {{ event.hall }}</span>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <hr class="pt-0 mt-0">
+                    <h5 style="display: inline;">Participants</h5>
+                    <button style="display: inline;" class="btn btn-raised btn-sm btn-info mb-1 ml-3" (click)="addParticipants(event)">Add Participants</button>
+                    <h6 *ngIf="!participants || participants.length == 0" class="text-center mt-5 mb-5" style="color: rgb(161, 157, 157);">No participants</h6>
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-10 mt-3 mb-3">
+                            <p-carousel [value]="participants" [numVisible]="3" [autoplayInterval]="3000" [circular]="true" *ngIf="participants && participants.length > 0">
+                                <ng-template let-participant pTemplate="item">
+                                    <mat-card class="carouselParticipants mt-3 mb-3 ml-2">
+                                        <h4>{{ participant.name }}</h4>
+                                        <h6>{{ participant.email }}</h6>
+                                    </mat-card>
+                                </ng-template>
+                            </p-carousel>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </mat-expansion-panel>
+            </ng-container>
+        </mat-accordion>
+    </div>
 </div>

@@ -1,0 +1,30 @@
+<h4 mat-dialog-title>{{ data.action }} Company</h4>
+<hr>
+<div mat-dialog-content class="text-center">
+    <form #companyForm="ngForm">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name" name="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Registration Code</mat-label>
+            <input matInput [(ngModel)]="regCode" name="regCode">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input matInput [(ngModel)]="address" name="address">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Domain</mat-label>
+            <input matInput [(ngModel)]="domain" name="domain">
+        </mat-form-field>
+    </form>
+</div>
+<hr>
+<div class="actions">
+    <button mat-raised-button color="primary" (click)="companyActions(companyForm.value)">{{ data.action }}</button>
+    <button mat-raised-button mat-dialog-close color="warn" style="margin-left: 10px;">Cancel</button>
+</div>

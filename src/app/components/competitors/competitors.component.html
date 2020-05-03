@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row" *ngIf="!competitors || competitors.length == 0">
+        <div class="col-3">
+            <div class="addCompetitor" *ngIf="!showNewCard">
+                <i class="pi pi-plus-circle" style="font-size: 5em; margin-top: 30px; cursor: pointer;" (click)="showCompetitorCard()"></i>
+                <p style="font-size: 14px;">Click here to add a new competitor</p>
+            </div>
+            <competitor-form *ngIf="showNewCard" [action]="'Add'" (actionPerform)="addCompetitor($event)"></competitor-form>
+        </div>
+    </div>
+    <ng-container *ngFor="let competitor of competitors; let i = index">
+        <div class="row" *ngIf="i%4 == 0">
+            <div class="col-3" *ngIf="i < competitors.length">
+                <mat-card class="competitor" *ngIf="!editCompetitors[i]">
+                    <h4 >{{ competitors[i].company }} - {{ competitors[i].service }}</h4>
+                    <hr>
+                    <p><b>Price: </b>{{ competitors[i].price | currency: 'USD' }}</p>
+                    <p><b>Period: </b> {{ competitors[i].startDate }} - {{ competitors[i].endDate }}</p>
+                    <hr>
+                    <div class="actions">
+                        <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="showEditCard(i)">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteCompetitor(competitors[i])">Delete</button>
+                    </div>
+                </mat-card>
+                <competitor-form *ngIf="editCompetitors[i]" [action]="'Edit'" [competitor]="competitors[i]" (actionPerform)="editCompetitor($event, i)"></competitor-form>
+            </div>
+            <div class="col-3" *ngIf="(i+1) < competitors.length">
+                <mat-card class="competitor" *ngIf="!editCompetitors[i+1]">
+                    <h4 >{{ competitors[i+1].company }} - {{ competitors[i+1].service }}</h4>
+                    <hr>
+                    <p><b>Price: </b>{{ competitors[i+1].price | currency: 'USD' }}</p>
+                    <p><b>Period: </b> {{ competitors[i+1].startDate }} - {{ competitors[i+1].endDate }}</p>
+                    <hr>
+                    <div class="actions">
+                        <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="showEditCard(i+1)">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteCompetitor(competitors[i+1])">Delete</button>
+                    </div>
+                </mat-card>
+                <competitor-form *ngIf="editCompetitors[i+1]" [action]="'Edit'" [competitor]="competitors[i+1]" (actionPerform)="editCompetitor($event, i+1)"></competitor-form>
+            </div>
+            <div class="col-3" *ngIf="(i+2) < competitors.length">
+                <mat-card class="competitor" *ngIf="!editCompetitors[i+2]">
+                    <h4 >{{ competitors[i+2].company }} - {{ competitors[i+2].service }}</h4>
+                    <hr>
+                    <p><b>Price: </b>{{ competitors[i+2].price | currency: 'USD' }}</p>
+                    <p><b>Period: </b> {{ competitors[i+2].startDate }} - {{ competitors[i+2].endDate }}</p>
+                    <hr>
+                    <div class="actions">
+                        <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="showEditCard(i+2)">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteCompetitor(competitors[i+2])">Delete</button>
+                    </div>
+                </mat-card>
+                <competitor-form *ngIf="editCompetitors[i+2]" [action]="'Edit'" [competitor]="competitors[i+2]" (actionPerform)="editCompetitor($event, i+2)"></competitor-form>
+            </div>
+            <div class="col-3" *ngIf="(i+3) < competitors.length">
+                <mat-card class="competitor" *ngIf="!editCompetitors[i+3]">
+                    <h4 >{{ competitors[i+3].company }} - {{ competitors[i+3].service }}</h4>
+                    <hr>
+                    <p><b>Price: </b>{{ competitors[i+3].price | currency: 'USD' }}</p>
+                    <p><b>Period: </b> {{ competitors[i+3].startDate }} - {{ competitors[i+3].endDate }}</p>
+                    <hr>
+                    <div class="actions">
+                        <button mat-raised-button color="primary" style="margin-right: 10px;" (click)="showEditCard(i+3)">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteCompetitor(competitors[i+3])">Delete</button>
+                    </div>
+                </mat-card>
+                <competitor-form *ngIf="editCompetitors[i+3]" [action]="'Edit'" [competitor]="competitors[i+3]" (actionPerform)="editCompetitor($event, i+3)"></competitor-form>
+            </div>
+            <div class="col-3" *ngIf="(i+1) >= competitors.length || (i+2) >= competitors.length || (i+3) >= competitors.length || (i+4) >= competitors.length">
+                <div class="addCompetitor" *ngIf="!showNewCard">
+                    <i class="pi pi-plus-circle" style="font-size: 5em; margin-top: 30px; cursor: pointer;" (click)="showCompetitorCard()"></i>
+                    <p style="font-size: 14px;">Click here to add a new competitor</p>
+                </div>
+                <competitor-form *ngIf="showNewCard" [action]="'Add'" (actionPerform)="addCompetitor($event)"></competitor-form>
+            </div>
+        </div>
+    </ng-container>
+</div>

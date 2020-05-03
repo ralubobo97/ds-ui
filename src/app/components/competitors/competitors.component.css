@@ -1,0 +1,50 @@
+.competitor{
+    height: 180px;
+    width: 250px;
+    margin-top: 30px;
+}
+
+.competitor p{
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.actions button{
+    padding: 0;
+    min-width: 50px;
+    max-width: 70px;
+    line-height: 30px;
+}
+
+.actions{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.newCompetitor{
+    height: 180px;
+    width: 250px;
+    margin-top: 30px;
+    padding-top: 5px !important;
+}
+
+.competitorInputs .mat-form-field-wrapper {
+    margin-bottom: -1.25em;
+    font-size: 14px;
+    width: 100px;
+}
+
+.addCompetitor{
+    height: 180px;
+    width: 250px;
+    border: 1px dashed rgb(163, 162, 162);
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(163, 162, 162);
+    margin-top: 30px;
+}
+
+.competitor hr{
+    margin: 5px 0;
+}

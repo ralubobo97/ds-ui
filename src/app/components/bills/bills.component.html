@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6">
+            <div class="billsAccordion">
+                <h4 class="mt-2 mb-4">Customer bills</h4>
+                <mat-accordion>
+                    <ng-container *ngFor="let bill of customerBills">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Bill ID: {{ bill.id }}</mat-panel-title>
+                                <mat-panel-description>Due date: {{ bill.dueDate }} - {{ bill.paid == 0 ? 'Not paid' : 'Paid' }}</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <hr class="pt-0 mt-0">
+                            <div class="row text-center" style="font-size: 16px;">
+                                <div class="col-6"><b>Customer Name: </b>{{ bill.customerName }}</div>
+                                <div class="col-6"><b>Service Name: </b>{{ bill.serviceName }}</div>
+                            </div>
+                            <div class="text-center mt-4" style="font-size: 18px;"><b>Price: </b>{{ bill.price | currency: 'EUR'}} = {{ bill.price*bill.currency_rate | currency: 'RON' }}</div>
+                            <div class="text-center">( {{ 1 | currency: 'EUR' }} = {{ bill.currency_rate | currency: 'RON' }} )</div>
+                        </mat-expansion-panel>
+                    </ng-container>
+                </mat-accordion>
+            </div>
+        </div>
+    
+        <div class="col-6">
+            <div class="billsAccordion">
+                <h4 class="mt-2 mb-4">Company bills</h4>
+                <mat-accordion>
+                    <ng-container *ngFor="let bill of companyBills">
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Bill ID: {{ bill.id }}</mat-panel-title>
+                                <mat-panel-description>Due date: {{ bill.dueDate }} - {{ bill.paid == 0 ? 'Not paid' : 'Paid' }}</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <hr class="pt-0 mt-0">
+                            <div class="row text-center" style="font-size: 16px;">
+                                <div class="col-6"><b>Company Name: </b>{{ bill.companyName }}</div>
+                                <div class="col-6"><b>Service Name: </b>{{ bill.serviceName }}</div>
+                            </div>
+                            <div class="text-center mt-4" style="font-size: 18px;"><b>Price: </b>{{ bill.price | currency: 'EUR'}} = {{ bill.price*bill.currency_rate | currency: 'RON' }}</div>
+                            <div class="text-center">( {{ 1 | currency: 'EUR' }} = {{ bill.currency_rate | currency: 'RON' }} )</div>
+                        </mat-expansion-panel>
+                    </ng-container>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast position="top-right"></p-toast>

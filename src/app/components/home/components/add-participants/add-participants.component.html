@@ -1,0 +1,17 @@
+<h4 class="text-center">Participants available for this meeting</h4>
+<hr>
+<ng-container *ngFor="let participant of participants; let i = index">
+    <div class="row" *ngIf="i%2 == 0">
+        <div class="col-2"></div>
+        <div class="col-4 " *ngIf="i < participants.length">
+            <p-checkbox name="employees" [value]="participants[i]" [label]="participants[i].name" [(ngModel)]="selectedParticipants"></p-checkbox>
+        </div>
+        <div class="col-6" *ngIf="(i+1) < participants.length">
+            <p-checkbox name="employees" [value]="participants[i+1]" [label]="participants[i+1].name" [(ngModel)]="selectedParticipants"></p-checkbox>
+        </div>
+    </div>
+</ng-container>
+<hr>
+<div class="text-center mt-3">
+    <button class="btn btn-raised btn-primary" (click)="addParticipants()">Add</button>
+</div>
