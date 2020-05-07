@@ -9,7 +9,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class CompanyComponent implements OnInit {
   name; regCode; address; domain;
-
+  company;
+  
   constructor(private dataService: DataService, private dialogRef: MatDialogRef<CompanyComponent>, @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class CompanyComponent implements OnInit {
     } else {
       form.id = this.data.companyID;
       this.dataService.editCompany(form).subscribe(res => {
+        this.company = form;
         this.dialogRef.close();
       });
     }  

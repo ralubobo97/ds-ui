@@ -37,6 +37,12 @@ export class CustomersComponent implements OnInit {
         action: 'Edit',
         companyID
       }
-    })
+    });
+
+    dialog.afterClosed().subscribe(res => {
+      let index = this.customers.findIndex(customer => customer.companyID == companyID);
+      this.customers[index].company = dialog.componentInstance.company.name;
+      
+    });
   }
 }

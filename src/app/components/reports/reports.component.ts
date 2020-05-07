@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as jspdf from 'jspdf';
 import { DataService } from 'src/app/services/data.service';
+import * as FileSaver from 'file-saver';
+import * as excel from 'xlsx';
 
 @Component({
   selector: 'app-reports',
@@ -10,6 +12,9 @@ import { DataService } from 'src/app/services/data.service';
 export class ReportsComponent implements OnInit {
   bills;
   totalGain = 0;
+
+  EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+  EXCEL_EXTENSION = 'xlsx';
 
   constructor(private data: DataService) { }
 
@@ -43,4 +48,13 @@ export class ReportsComponent implements OnInit {
 
     doc.save('tableToPdf.pdf');
   }
+
+  saveExcel(){
+    const worksheet: excel.WorkSheet = excel.utils.json_to_sheet(this.bills);
+    const workbook: excel.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    const buffer = excel.write(workbook, { bookType: 'xlsx', type: 'array' });
+
+    const data: Blob = new Blob([buffer], { type: this.EXCEL_TYPE });
+    FileSaver.saveAs(data, `report.${this.EXCEL_EXTENSION}`);
+}
 }

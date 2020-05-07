@@ -23,12 +23,14 @@
     "@angular/router": "~9.0.0",
     "@auth0/angular-jwt": "^4.0.0",
     "bootstrap": "^4.4.1",
+    "file-saver": "^2.0.2",
     "jquery": "^3.5.0",
     "jspdf": "^1.5.3",
     "primeicons": "^2.0.0",
     "primeng": "^9.0.5",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "xlsx": "^0.16.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

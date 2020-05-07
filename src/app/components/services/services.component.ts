@@ -11,6 +11,7 @@ import { ForecastsComponent } from './components/forecasts/forecasts.component';
 export class ServicesComponent implements OnInit {
   services;
   serviceTypes = [
+    { value: '', label: 'Select type' },
     { value: 'type1', label: 'Type 1' },
     { value: 'type2', label: 'Type 2' },
     { value: 'type3', label: 'Type 3' },
